@@ -1,0 +1,53 @@
+<html>
+<head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/funnel.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    
+    
+
+</head>
+<body>
+        <a href="index.html">Voltar</a>
+    <div id="container" style="min-width: 410px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+     <script>
+ 
+ Highcharts.chart('container', {
+    chart: {
+        type: 'pyramid'
+    },
+    title: {
+        text: 'Interest by Crypto Category',
+        x: -50
+    },
+    plotOptions: {
+        series: {
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b> ({point.y:,.0f})',
+                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black',
+                softConnector: true
+            },
+            center: ['40%', '50%'],
+            width: '80%'
+        }
+    },
+    legend: {
+        enabled: false
+    },
+    series: [{
+        name: 'Unique users',
+        data: [
+            ['Financial',      15654],
+            ['Governemnt',            4064],
+            ['IoT - Internet of Things', 1987],
+            ['Energy',          976],
+            ['Health',             846]
+        ]
+    }]
+});
+    </script>
+</body>
+
+</html>

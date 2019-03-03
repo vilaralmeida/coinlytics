@@ -1,0 +1,79 @@
+<html>
+<head>
+
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/pareto.js"></script>
+    
+    
+<style>
+#container {
+    max-width: 800px;
+    height: 400px;
+    margin: 1em auto;
+}
+</style>
+</head>
+<body>
+        <a href="index.html">Voltar</a>
+        <div id="container"></div>
+        
+        <script>
+ 
+ Highcharts.chart('container', {
+    chart: {
+        renderTo: 'container',
+        type: 'column'
+    },
+    title: {
+        text: 'Why didnt buy any cryptocurrencie'
+    },
+    tooltip: {
+        shared: true
+    },
+    xAxis: {
+        categories: [
+            'Not reliable',
+            'No exchanges in my country',
+            'Didnt accepts my credit card / payment method',
+            'Dont understand how it works',
+            'No money for this type of trading',
+            'Very difficult to understand how to buy it',
+            'Too expensive',
+            'My friends told me not to buy any of those crypto stuff'
+        ],
+        crosshair: true
+    },
+    yAxis: [{
+        title: {
+            text: ''
+        }
+    }, {
+        title: {
+            text: ''
+        },
+        minPadding: 0,
+        maxPadding: 0,
+        max: 100,
+        min: 0,
+        opposite: true,
+        labels: {
+            format: "{value}%"
+        }
+    }],
+    series: [{
+        type: 'pareto',
+        name: 'Pareto',
+        yAxis: 1,
+        zIndex: 10,
+        baseSeries: 1
+    }, {
+        name: 'Complaints',
+        type: 'column',
+        zIndex: 2,
+        data: [755, 222, 151, 86, 72, 51, 36, 10]
+    }]
+});
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<html>
+<head>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<style>
+
+#container {
+    max-width: 800px;
+    height: 400px;
+    margin: 1em auto;
+}
+
+caption {
+	padding-bottom: 5px;
+	font-family: 'Verdana';
+	font-size: 14pt;
+	font-weight: bold;
+	color:#555555;
+}
+
+table {
+	font-family: 'Verdana';
+	font-size: 12pt;
+	color:#555555;              
+	border-collapse: collapse;
+	border: 3px solid #CCCCCC;
+	margin: 2px auto;	
+}
+
+tr {
+  	border-bottom: 2px solid #EEEEEE;
+}
+
+th {
+	border-left: 2px solid #EEEEEE;
+	border-right: 2px solid #EEEEEE;
+	padding: 12px 15px;
+	border-collapse: collapse;
+}
+
+th[scope="col"] {
+	background-color: #ffffee;
+}
+
+th[scope="row"] {
+	background-color: #f0fcff;
+	text-align:left;
+}
+
+td {
+  	border-left: 2px solid #EEEEEE;
+  	border-right: 2px solid #EEEEEE;
+  	padding: 12px 15px;
+  	border-collapse: collapse;
+}
+
+</style>
+</head>
+<body>
+        <a href="index.html">Voltar</a>
+
+    <div id="container" style="width:100%; height:1600px;"></div>
+    <script>
+Highcharts.chart('container', {
+    chart: {
+        type: 'spline',
+        description: 'How the pattern of buying bitcoins for each of the majors brokers in the market?'
+    },
+
+    legend: {
+        symbolWidth: 40
+    },
+
+    title: {
+        text: 'Bitcoin Participation from 2015 to 2018'
+    },
+
+    subtitle: {
+        text: 'How each of the majors bitcoin brokers participate in the crypto market? (Transactions Volume)'
+    },
+
+    yAxis: {
+        title: {
+            text: 'Volume'
+        }
+    },
+
+    xAxis: {
+        title: {
+            text: 'Time'
+        },
+        description: 'Time from January 2014 to July 2018',
+        categories: ['January 2014', 'December 2015', 'May 2016', 'January 2017', 'July 2018']
+    },
+
+    tooltip: {
+        split: true
+    },
+
+    plotOptions: {
+        series: {
+            point: {
+                events: {
+                    click: function () {
+                        window.location.href = this.series.options.website;
+                    }
+                }
+            },
+            cursor: 'pointer'
+        }
+    },
+
+    series: [
+        {
+            name: 'ZB.COM',
+            data: [74, 69.6, 63.7, 63.9, 43.7],
+            website: ''
+        }, {
+            name: 'OKEx',
+            data: [8, 34.8, 43.0, 51.2, 41.4],
+            website: '',
+            dashStyle: 'Dot'
+        }, {
+            name: 'Binance',
+            data: [6, 20.2, 30.7, 36.8, 30.9],
+            website: '',
+            dashStyle: 'ShortDot',
+            color: Highcharts.getOptions().colors[7]
+        }, {
+            name: 'OEX',
+            data: [23, 19.0, 20.7, 13.9, 29.6],
+            website: '',
+            dashStyle: 'Dash',
+            color: Highcharts.getOptions().colors[0]
+        }, {
+            name: 'CoinBene',
+            data: [0, 6.1, 6.8, 5.3, 27.5],
+            website: '',
+            dashStyle: 'ShortDashDot',
+            color: Highcharts.getOptions().colors[8]
+        }, {
+            name: 'BiBox',
+            data: [0, 16.2, 22.1, 26.2, 6.9],
+            website: '',
+            dashStyle: 'ShortDash',
+            color: Highcharts.getOptions().colors[1]
+        }, {
+            name: 'DigiFinex',
+            data: [0, 0, 2.8, 4.8, 2.8],
+            website: '',
+            dashStyle: 'DotDash',
+            color: Highcharts.getOptions().colors[4]
+        }, {
+            name: 'BitForex',
+            data: [0, 7.4, 5.9, 9.3, 6.5],
+            website: '',
+            dashStyle: 'LongDash',
+            color: Highcharts.getOptions().colors[7]
+        }
+    ]
+});
+
+    </script>
+</body>
+
+</html>
